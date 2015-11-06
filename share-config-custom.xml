@@ -56,9 +56,10 @@
         <aspect name="asesoria:common" />
         </aspects>
         <types>
-                <type name="cm:content">
-                                <subtype name="asesoria:info" />
-                </type>
+                <type name="asesoria:documento_cliente" />
+                <type name="asesoria:parte_trabajo" />
+                <type name="asesoria:factura" />
+                <type name="asesoria:nomina" />
         </types>
 
 </config>
