@@ -13,15 +13,27 @@
 	<namespaces>
 		<namespace uri="http://alfresco.systerminal.com/" prefix="asesoria" />
 	</namespaces>
-	<!-- gsi es asesoria para nosotros -->
+	<!-- gsi es asesoria para nosotros 
+	<constraint name="asesoria:list1" type="LIST">
+        <parameter name="allowedValues">
+            <list>
+                <value>1</value>
+                <value>2</value>
+		<value>3</value>
+                <value>4</value>
+            </list>
+        </parameter>
+        
+     </constraint>-->
 
 	<types>
 		<type name="asesoria:documento_cliente">
 			<title>Documento de Cliente</title>
-			<parent>cm:content</parent>
+			
 				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
+				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
 		</type>
@@ -29,35 +41,55 @@
 		<type name="asesoria:parte_trabajo">
 			<title>Parte de trabajo</title>
 			<!-- <parent>cm:content</parent> -->
+			
 				<properties>
 				<property name="asesoria:empleado_parte">
+
 					<title>Empleado</title>
+
 					<type>d:text</type>
+
 					<mandatory>true</mandatory>
+
 				</property>
 				</properties>
 				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
+				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
 		</type>
 		<type name="asesoria:factura">
-			<title>Documento de Cliente</title>
-			<parent>cm:content</parent>
+			<title>Factura</title>
+			
+			<properties>
+				<property name="asesoria:empleado_parte">
+
+					<title>Trimestre</title>
+
+					<type>d:text</type>
+
+					<mandatory>true</mandatory>
+
+				</property>
+				</properties>
 				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
+				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
 		</type>
 
 		<type name="asesoria:nomina">
-			<title>Documento de Cliente</title>
-			<parent>cm:content</parent>
+			<title>Nómina</title>
+			
+			
 				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
+				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
 		</type>
@@ -69,7 +101,7 @@
 			<properties>
 				<!-- Topic -->
 				<property name="asesoria:DNI">
-					<title>DNI</title>
+					<title>DNI del cliente </title>
 					<type>d:text</type>
 					<mandatory>true</mandatory>
 					<multiple>false</multiple>
