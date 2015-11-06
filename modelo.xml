@@ -38,7 +38,7 @@
 			</mandatory-aspects>
 		</type>
 
-		<type name="asesoria:parte_trabajo">
+		<!-- <type name="asesoria:parte_trabajo">
 			<title>Parte de trabajo</title>
 			 <parent>cm:content</parent>
 			
@@ -53,7 +53,6 @@
 
 				</property>
 				</properties>
-				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
 				<aspect>cm:versionable</aspect>
@@ -75,7 +74,6 @@
 
 				</property>
 				</properties>
-				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
 				<aspect>cm:versionable</aspect>
@@ -88,14 +86,13 @@
 			<parent>cm:content</parent>
 			
 			
-				<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
 				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
-		</type>
-		<!-- aqui van  otros tipos-> documentos -->
+		</type>-->
+			
 	</types>
 	<aspects>
 		<aspect name="asesoria:common">
