@@ -29,8 +29,8 @@
 	<types>
 		<type name="asesoria:documento_cliente">
 			<title>Documento de Cliente</title>
-			
-				<!-- aspecto obligatorio -->			
+				<parent>cm:content</parent>				
+					<!-- aspecto obligatorio -->			
 			<mandatory-aspects>
 				<aspect>asesoria:common</aspect>
 				<aspect>cm:versionable</aspect>
@@ -40,7 +40,7 @@
 
 		<type name="asesoria:parte_trabajo">
 			<title>Parte de trabajo</title>
-			<!-- <parent>cm:content</parent> -->
+			 <parent>cm:content</parent>
 			
 				<properties>
 				<property name="asesoria:empleado_parte">
@@ -62,7 +62,8 @@
 		</type>
 		<type name="asesoria:factura">
 			<title>Factura</title>
-			
+			<parent>cm:content</parent>
+
 			<properties>
 				<property name="asesoria:empleado_parte">
 
@@ -84,6 +85,7 @@
 
 		<type name="asesoria:nomina">
 			<title>Nómina</title>
+			<parent>cm:content</parent>
 			
 			
 				<!-- aspecto obligatorio -->			
