@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="asesoria:exmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://svn.alfresco.com/repos/alfresco-open-mirror/alfresco/HEAD/root/projects/repository/config/alfresco/model/modelSchema.xsd">
+	<description>Modelo Asesoria Espada</description>
+	<author>Systerminal.com</author>
+	<version>1.0</version>
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+	<!-- Namespaces -->
+	<namespaces>
+		<namespace uri="http://alfresco.systerminal.com/" prefix="asesoria" />
+	</namespaces>
+	<!-- gsi es asesoria para nosotros -->
+
+	<types>
+		<type name="asesoria:documento_cliente">
+			<title>Documento de Cliente</title>
+			<parent>cm:content</parent>
+				<!-- aspecto obligatorio -->			
+			<mandatory-aspects>
+				<aspect>asesoria:common</aspect>
+				
+			</mandatory-aspects>
+		</type>
+
+		<type name="asesoria:parte_trabajo">
+			<title>Parte de trabajo</title>
+			<!-- <parent>cm:content</parent> -->
+				<properties>
+				<property name="asesoria:empleado_parte">
+					<title>Empleado</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+				</property>
+				</properties>
+				<!-- aspecto obligatorio -->			
+			<mandatory-aspects>
+				<aspect>asesoria:common</aspect>
+				
+			</mandatory-aspects>
+		</type>
+		<type name="asesoria:factura">
+			<title>Documento de Cliente</title>
+			<parent>cm:content</parent>
+				<!-- aspecto obligatorio -->			
+			<mandatory-aspects>
+				<aspect>asesoria:common</aspect>
+				
+			</mandatory-aspects>
+		</type>
+
+		<type name="asesoria:nomina">
+			<title>Documento de Cliente</title>
+			<parent>cm:content</parent>
+				<!-- aspecto obligatorio -->			
+			<mandatory-aspects>
+				<aspect>asesoria:common</aspect>
+				
+			</mandatory-aspects>
+		</type>
+		<!-- aqui van  otros tipos-> documentos -->
+	</types>
+	<aspects>
+		<aspect name="asesoria:common">
+			<title>Propiedades comunes</title>
+			<properties>
+				<!-- Topic -->
+				<property name="asesoria:DNI">
+					<title>DNI</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+			        	<atomic>true</atomic>
+			            <stored>true</stored>
+			            <tokenised>false</tokenised>
+			        </index>
+				</property>
+			</properties>
+		</aspect>
+
+	</aspects>
+</model>
