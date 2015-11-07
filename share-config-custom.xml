@@ -59,18 +59,22 @@
 		<type  name="cm:content">
                 	<subtype name="asesoria:documento_cliente" />
 		</type>
-		<!-- <type  name="cm:content">
-                <subtype name="asesoria:parte_trabajo" />
+		<type  name="cm:content">
+                	<subtype name="asesoria:parte_trabajo" />
 		</type>
 		<type  name="cm:content">
-                <subtype name="asesoria:factura" />
+                	<subtype name="asesoria:factura" />
 		</type>
 		<type  name="cm:content">
-                <subtype name="asesoria:nomina" />
-		</type>-->
+                	<subtype name="asesoria:nomina" />
+		</type>
 
 
         </types>
+	<constraints>
+		<constraint name="asesoria:listatrimestre" />
+		<constraint name="asesoria:regexDNICIF" />
+	</constraints>
 
 </config>
 

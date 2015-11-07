@@ -14,17 +14,26 @@
 		<namespace uri="http://alfresco.systerminal.com/" prefix="asesoria" />
 	</namespaces>
 	<!-- gsi es asesoria para nosotros 
-	<constraint name="asesoria:list1" type="LIST">
-        <parameter name="allowedValues">
-            <list>
-                <value>1</value>
-                <value>2</value>
-		<value>3</value>
-                <value>4</value>
-            </list>
-        </parameter>
-        
-     </constraint>-->
+	-->
+	<!-- Para la lista-->
+	<constraints>
+		<constraint name="asesoria:listatrimestre" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value>1</value>
+					<value>2</value>
+					<value>3</value>
+					<value>4</value>
+				</list>
+			</parameter>
+		</constraint>
+		<!-- Comprobacion de DNI-->
+		<constraint name="asesoria:regexDNICIF" type="REGEX">
+        		<parameter name="expression"><value>([A-Z]{1}[0-9]{8}|[0-9]{8}[A-Z]{1})</value></parameter>
+        		<parameter name="requiresMatch"><value>true</value></parameter>
+     		</constraint>
+
+	</constraints>
 
 	<types>
 		<type name="asesoria:documento_cliente">
@@ -64,13 +73,16 @@
 			<parent>cm:content</parent>
 
 			<properties>
-				<property name="asesoria:empleado_parte">
+				<property name="asesoria:Trimestre">
 
 					<title>Trimestre</title>
-
 					<type>d:text</type>
 
 					<mandatory>true</mandatory>
+				 	<constraints>
+     					   <constraint ref="asesoria:listatrimestre" />
+     					 </constraints>
+					
 
 				</property>
 				</properties>
@@ -102,13 +114,19 @@
 				<property name="asesoria:DNI">
 					<title>DNI del cliente </title>
 					<type>d:text</type>
+					
 					<mandatory>true</mandatory>
+					
 					<multiple>false</multiple>
-					<index enabled="true">
+				
+				<index enabled="true">
 			        	<atomic>true</atomic>
-			            <stored>true</stored>
-			            <tokenised>false</tokenised>
+			            	<stored>true</stored>
+			            	<tokenised>false</tokenised>
 			        </index>
+				<constraints>
+     					   <constraint ref="asesoria:regexDNICIF"/>
+     					</constraints>
 				</property>
 			</properties>
 		</aspect>
