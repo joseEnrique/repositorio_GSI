@@ -112,7 +112,7 @@
 			<properties>
 				<!-- Topic -->
 				<property name="asesoria:DNI">
-					<title>DNI del cliente </title>
+					<title>DNI/CIF del cliente </title>
 					<type>d:text</type>
 					
 					<mandatory>true</mandatory>
