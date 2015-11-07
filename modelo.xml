@@ -38,7 +38,7 @@
 			</mandatory-aspects>
 		</type>
 
-		<!-- <type name="asesoria:parte_trabajo">
+		<type name="asesoria:parte_trabajo">
 			<title>Parte de trabajo</title>
 			 <parent>cm:content</parent>
 			
@@ -91,7 +91,7 @@
 				<aspect>cm:versionable</aspect>
 				
 			</mandatory-aspects>
-		</type>-->
+		</type>
 			
 	</types>
 	<aspects>
