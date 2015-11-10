@@ -78,6 +78,62 @@
 
 </config>
 
+<!-- Custom Search Configuration, for asesoria:documento_cliente data type -->
+   <config replace="true" evaluator="string-compare" condition="AdvancedSearch">
+		<advanced-search>
+			<forms>
+				<form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content</form>
+				<form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
+				<form labelId="type.asesoria_documento_cliente" descriptionId="search.form.desc.asesoria_documento_cliente">asesoria:documento_cliente</form>
+			</forms>
+		</advanced-search>
+   </config>
+   
+	<!-- Custom Search FORM Configuration -->
+	<!-- asesoria:documento_cliente type (new nodes) -->
+	<config evaluator="model-type" condition="asesoria.documento_cliente">
+		<forms>
+				<!-- Search form -->
+				<form id="search">
+					<field-visibility>
+						<show id="cm:name" />
+						<show id="cm:title" force="true" />
+						<show id="cm:description" force="true" />
+						<show id="mimetype" />
+						<show id="cm:modified" />
+						<show id="cm:modifier" />
+						<!-- gsi:project -->
+						<show id="asesoria:DNI" />
+						
+					</field-visibility>
+					<appearance>
+						<field id="mimetype">
+						<control
+						template="/org/alfresco/components/form/controls/mimetype.ftl" />
+						</field>
+						<field id="cm:modifier">
+						<control>
+						<control-param name="forceEditable">true</control-param>
+						</control>
+						</field>
+						<field id="cm:modified">
+						<control
+						template="/org/alfresco/components/form/controls/daterange.ftl" />
+						</field>
+						<!-- new -->
+						<!-- gsi:project -->
+						<field id="asesoria:DNI" label-id="prop.asesoria_DNI">
+						<control
+						template="/org/alfresco/components/form/controls/textfield.ftl" />
+						</field>
+						
+						<!-- end new -->
+					</appearance>
+				</form>
+		</forms>
+	
+	</config>
+
 
 
 </alfresco-config>
