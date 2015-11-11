@@ -97,11 +97,31 @@
 				<form id="search">
 					<field-visibility>
 						<!-- asesoria:project -->
+						<show id="cm:name" />
+						<show id="cm:title" />
+						<show id="cm:description" />
+						<show id="mimetype" />
+						<show id="cm:modified" />
+						<show id="cm:modifier" />						
 						<show id="asesoria:DNI" force="true" />
-						
 					</field-visibility>
 					<appearance>
 						<!-- new -->
+
+						<field id="mimetype">
+						<control
+						template="/org/alfresco/components/form/controls/mimetype.ftl" />
+						</field>
+						<field id="cm:modifier">
+						<control>
+						<control-param name="forceEditable">true</control-param>
+						</control>
+						</field>
+						<field id="cm:modified">
+						<control
+						template="/org/alfresco/components/form/controls/daterange.ftl" />
+						</field>
+						
 						<!-- gsi:project -->
 						<field id="asesoria:DNI" label-id="prop.asesoria_DNI">
 						<control
