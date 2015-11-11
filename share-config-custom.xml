@@ -1,0 +1,123 @@
+<alfresco-config>
+   
+   <!-- Repository Library config section -->
+   <config evaluator="string-compare" condition="RepositoryLibrary" replace="true">
+      <!--
+         Whether the link to the Repository Library appears in the header component or not.
+      -->
+      <visible>true</visible>
+   </config>
+
+   <config evaluator="string-compare" condition="Remote">
+      <remote>
+         <endpoint>
+            <id>alfresco-noauth</id>
+            <name>Alfresco - unauthenticated access</name>
+            <description>Access to Alfresco Repository WebScripts that do not require authentication</description>
+            <connector-id>alfresco</connector-id>
+            <endpoint-url>http://localhost:80/alfresco/s</endpoint-url>
+            <identity>none</identity>
+         </endpoint>
+
+         <endpoint>
+            <id>alfresco</id>
+            <name>Alfresco - user access</name>
+            <description>Access to Alfresco Repository WebScripts that require user authentication</description>
+            <connector-id>alfresco</connector-id>
+            <endpoint-url>http://localhost:80/alfresco/s</endpoint-url>
+            <identity>user</identity>
+         </endpoint>
+
+         <endpoint>
+            <id>alfresco-feed</id>
+            <name>Alfresco Feed</name>
+            <description>Alfresco Feed - supports basic HTTP authentication via the EndPointProxyServlet</description>
+            <connector-id>http</connector-id>
+            <endpoint-url>http://localhost:80/alfresco/s</endpoint-url>
+            <basic-auth>true</basic-auth>
+            <identity>user</identity>
+         </endpoint>
+         
+         <endpoint>
+            <id>activiti-admin</id>
+            <name>Activiti Admin UI - user access</name>
+            <description>Access to Activiti Admin UI, that requires user authentication</description>
+            <connector-id>activiti-admin-connector</connector-id>
+            <endpoint-url>http://localhost:80/alfresco/activiti-admin</endpoint-url>
+            <identity>user</identity>
+         </endpoint>
+      </remote>
+   </config>
+
+
+<config evaluator="string-compare" condition="DocumentLibrary">
+
+        <aspects>
+	<visible>
+        <aspect name="asesoria:common" />
+	</visible>
+        </aspects>
+        <types>
+		<type  name="cm:content">
+                	<subtype name="asesoria:documento_cliente" />
+		</type>
+		<type  name="cm:content">
+                	<subtype name="asesoria:parte_trabajo" />
+		</type>
+		<type  name="cm:content">
+                	<subtype name="asesoria:factura" />
+		</type>
+		<type  name="cm:content">
+                	<subtype name="asesoria:nomina" />
+		</type>
+
+
+        </types>
+	<constraints>
+		<constraint name="asesoria:listatrimestre" />
+		<constraint name="asesoria:regexDNICIF" />
+	</constraints>
+
+</config>
+
+<!-- Custom Search Configuration, for asesoria:documento_cliente data type -->
+   <config replace="true" evaluator="string-compare" condition="AdvancedSearch">
+		<advanced-search>
+			<forms>
+				<form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content</form>
+				<form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
+				<form labelId="Documentos de Clientes" descriptionId="Para buscar documentos de clientes">asesoria:documento_cliente</form>
+			</forms>
+		</advanced-search>
+   </config>
+   
+	<!-- Custom Search FORM Configuration -->
+	<!-- asesoria:documento_cliente type (new nodes) -->
+	<config evaluator="model-type" condition="asesoria:documento_cliente">
+		<forms>
+				<!-- Search form -->
+				<form id="search">
+					<field-visibility>
+						<!-- gsi:project -->
+						<show id="asesoria:DNI" />
+						
+					</field-visibility>
+					<appearance>
+						<!-- new -->
+						<!-- gsi:project -->
+						<field id="asesoria:DNI" label-id="DNI a BUSCAR">
+						<control
+						template="/org/alfresco/components/form/controls/textfield.ftl" />
+						</field>
+						
+						<!-- end new -->
+					</appearance>
+				</form>
+		</forms>
+	
+	</config>
+
+
+
+</alfresco-config>
+
