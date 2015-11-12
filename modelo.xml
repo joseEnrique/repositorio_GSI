@@ -49,17 +49,21 @@
 
 		<type name="asesoria:parte_trabajo">
 			<title>Parte de trabajo</title>
-			 <parent>cm:content</parent>
-			
+			<parent>cm:content</parent>
 				<properties>
 				<property name="asesoria:empleado_parte">
-
+					
 					<title>Empleado</title>
 
 					<type>d:text</type>
 
 					<mandatory>true</mandatory>
 
+				</property>
+				<property name="asesoria:fechaModificacion">
+					<title>Fecha modificación documento</title>
+					<type>d:date</type>
+					<mandatory>true</mandatory>
 				</property>
 				</properties>
 			<mandatory-aspects>
