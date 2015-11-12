@@ -142,7 +142,7 @@
 	</config>
 	<config evaluator="model-type" condition="asesoria:factura">
 		<forms>
-				<!-- Search form -->
+				<!-- Search form 1-->
 				<form id="search">
 					<field-visibility>
 						<show id="asesoria:DNI" force="true" />
@@ -150,6 +150,20 @@
 					<appearance>
 						<!-- new -->
 						<field id="asesoria:DNI" label-id="DNI a BUSCAR">
+						<control
+						template="/org/alfresco/components/form/controls/textfield.ftl" />
+						</field>
+					</appearance>
+				</form>
+				
+				<!-- Search form 2-->
+				<form id="search">
+					<field-visibility>
+						<show id="asesoria:Trimestre" />
+					</field-visibility>
+					<appearance>
+						<!-- new -->
+						<field id="asesoria:Trimestre" label-id="Trimestre a BUSCAR">
 						<control
 						template="/org/alfresco/components/form/controls/textfield.ftl" />
 						</field>
