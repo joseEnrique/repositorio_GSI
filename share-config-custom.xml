@@ -87,6 +87,8 @@
 				<form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content</form>
 				<form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
 				<form labelId="Documentos de Clientes" descriptionId="Para buscar documentos de clientes">asesoria:documento_cliente</form>
+				<form labelId="Nominas" descriptionId="Para buscar las nominas">asesoria:nomina</form>
+				<form labelId="Facturas" descriptionId="Para buscar las facturas">asesoria:factura</form>
 			</forms>
 		</advanced-search>
    </config>
@@ -117,6 +119,44 @@
 	
 	</config>
 
+	<!-- asesoria:nomina type (new nodes) -->
+
+	<config evaluator="model-type" condition="asesoria:nomina">
+		<forms>
+				<!-- Search form -->
+				<form id="search">
+					<field-visibility>
+						<show id="asesoria:DNI" />
+					</field-visibility>
+					<appearance>
+						<!-- new -->
+						<field id="asesoria:DNI" label-id="DNI a BUSCAR">
+						<control
+						template="/org/alfresco/components/form/controls/textfield.ftl" />
+						</field>
+					</appearance>
+				</form>
+		</forms>
+	
+	</config>
+	<config evaluator="model-type" condition="asesoria:factura">
+		<forms>
+				<!-- Search form -->
+				<form id="search">
+					<field-visibility>
+						<show id="asesoria:DNI" />
+					</field-visibility>
+					<appearance>
+						<!-- new -->
+						<field id="asesoria:DNI" label-id="DNI a BUSCAR">
+						<control
+						template="/org/alfresco/components/form/controls/textfield.ftl" />
+						</field>
+					</appearance>
+				</form>
+		</forms>
+	
+	</config>
 
 
 </alfresco-config>
