@@ -87,8 +87,9 @@
 				<form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content</form>
 				<form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
 				<form labelId="Documentos de Clientes" descriptionId="Para buscar documentos de clientes">asesoria:documento_cliente</form>
-				<form labelId="Nominas" descriptionId="Para buscar las nominas">asesoria:nomina</form>
-				<form labelId="Facturas" descriptionId="Para buscar las facturas">asesoria:factura</form>
+				<form labelId="Nominas por DNI" descriptionId="Para buscar las nominas">asesoria:nomina</form>
+				<form labelId="Facturas por DNI" descriptionId="Para buscar las facturas por dni">asesoria:factura</form>
+				<form labelId="Parte de Trabajo" descriptionId="Para buscar Partes de trabajo">asesoria:parte_trabajo</form>
 			</forms>
 		</advanced-search>
    </config>
@@ -101,7 +102,7 @@
 				<form id="search">
 					<field-visibility>
 						<!-- gsi:project -->
-						<show id="asesoria:DNI" />
+						<show id="asesoria:DNI" force="true"/>
 						
 					</field-visibility>
 					<appearance>
@@ -126,7 +127,7 @@
 				<!-- Search form -->
 				<form id="search">
 					<field-visibility>
-						<show id="asesoria:DNI" />
+						<show id="asesoria:DNI" force="true"/>
 					</field-visibility>
 					<appearance>
 						<!-- new -->
@@ -144,7 +145,7 @@
 				<!-- Search form -->
 				<form id="search">
 					<field-visibility>
-						<show id="asesoria:DNI" />
+						<show id="asesoria:DNI" force="true" />
 					</field-visibility>
 					<appearance>
 						<!-- new -->
@@ -157,6 +158,37 @@
 		</forms>
 	
 	</config>
+	<config evaluator="model-type" condition="asesoria:parte_trabajo">
+                <forms>
+                                <!-- Search form -->
+                                <form id="search">
+                                        <field-visibility>
+                                                <show id="asesoria:DNI" force="true"/>
+						<show id="asesoria:fechaModificacion" />
+						<show id="asesoria:empleado_parte" force="true"/>
+                                        </field-visibility>
+                                        <appearance>
+                                                <!-- new -->
+						<field id="asesoria:fechaModificacion" label-id="Rango de fecha a buscar">
+						<control
+						template="/org/alfresco/components/form/controls/daterange.ftl" />
+						</field>
+						<field id="asesoria:DNI" label-id="DNI a BUSCAR">
+                                                <control
+                                                template="/org/alfresco/components/form/controls/textfield.ftl" />
+                                                </field>
+						<field id="asesoria:empleado_parte" label-id="Empleado buscado ">
+                                                <control
+                                                template="/org/alfresco/components/form/controls/textfield.ftl" />
+                                                </field>
+
+                                        </appearance>
+                                </form>
+                </forms>
+
+        </config>
+
+	
 
 
 </alfresco-config>
