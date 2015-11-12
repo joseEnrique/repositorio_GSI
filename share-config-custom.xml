@@ -145,7 +145,7 @@
 				<!-- Search form 1-->
 				<form id="search">
 					<field-visibility>
-						<show id="asesoria:DNI" force="true" />
+						<show id="asesoria:DNI" />
 					</field-visibility>
 					<appearance>
 						<!-- new -->
@@ -154,10 +154,10 @@
 						template="/org/alfresco/components/form/controls/textfield.ftl" />
 						</field>
 					</appearance>
-				</form>
+
 				
-				<!-- Search form 2-->
-				<form id="search">
+
+				<!-- Search 2-->
 					<field-visibility>
 						<show id="asesoria:Trimestre" />
 					</field-visibility>
@@ -168,7 +168,7 @@
 						template="/org/alfresco/components/form/controls/textfield.ftl" />
 						</field>
 					</appearance>
-				</form>
+			</form>
 		</forms>
 	
 	</config>
